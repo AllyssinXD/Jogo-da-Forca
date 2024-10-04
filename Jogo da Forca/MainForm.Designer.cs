@@ -40,7 +40,6 @@ namespace Jogo_da_Forca
 			this.button_A = new System.Windows.Forms.Button();
 			this.button_B = new System.Windows.Forms.Button();
 			this.button_D = new System.Windows.Forms.Button();
-			this.button_H = new System.Windows.Forms.Button();
 			this.button_G = new System.Windows.Forms.Button();
 			this.button_Z = new System.Windows.Forms.Button();
 			this.button_F = new System.Windows.Forms.Button();
@@ -77,6 +76,7 @@ namespace Jogo_da_Forca
 			this.label5 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.button_H = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -91,7 +91,7 @@ namespace Jogo_da_Forca
 			this.button_C.Text = "C";
 			this.button_C.UseVisualStyleBackColor = true;
 			this.button_C.Visible = false;
-			this.button_C.Click += new System.EventHandler(this.Button_CClick);
+			this.button_C.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_A
 			// 
@@ -102,7 +102,7 @@ namespace Jogo_da_Forca
 			this.button_A.Text = "A";
 			this.button_A.UseVisualStyleBackColor = true;
 			this.button_A.Visible = false;
-			this.button_A.Click += new System.EventHandler(this.Button_AClick);
+			this.button_A.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_B
 			// 
@@ -113,7 +113,7 @@ namespace Jogo_da_Forca
 			this.button_B.Text = "B";
 			this.button_B.UseVisualStyleBackColor = true;
 			this.button_B.Visible = false;
-			this.button_B.Click += new System.EventHandler(this.Button_BClick);
+			this.button_B.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_D
 			// 
@@ -124,19 +124,7 @@ namespace Jogo_da_Forca
 			this.button_D.Text = "D";
 			this.button_D.UseVisualStyleBackColor = true;
 			this.button_D.Visible = false;
-			this.button_D.Click += new System.EventHandler(this.Button_DClick);
-			// 
-			// button_H
-			// 
-			this.button_H.BackColor = System.Drawing.Color.Gainsboro;
-			this.button_H.Location = new System.Drawing.Point(420, 197);
-			this.button_H.Name = "button_H";
-			this.button_H.Size = new System.Drawing.Size(31, 23);
-			this.button_H.TabIndex = 30;
-			this.button_H.Text = "H";
-			this.button_H.UseVisualStyleBackColor = false;
-			this.button_H.Visible = false;
-			this.button_H.Click += new System.EventHandler(this.Button_HClick);
+			this.button_D.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_G
 			// 
@@ -147,7 +135,7 @@ namespace Jogo_da_Forca
 			this.button_G.Text = "G";
 			this.button_G.UseVisualStyleBackColor = true;
 			this.button_G.Visible = false;
-			this.button_G.Click += new System.EventHandler(this.Button_GClick);
+			this.button_G.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_Z
 			// 
@@ -158,7 +146,7 @@ namespace Jogo_da_Forca
 			this.button_Z.Text = "Z";
 			this.button_Z.UseVisualStyleBackColor = true;
 			this.button_Z.Visible = false;
-			this.button_Z.Click += new System.EventHandler(this.Button_ZClick);
+			this.button_Z.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_F
 			// 
@@ -169,7 +157,7 @@ namespace Jogo_da_Forca
 			this.button_F.Text = "F";
 			this.button_F.UseVisualStyleBackColor = true;
 			this.button_F.Visible = false;
-			this.button_F.Click += new System.EventHandler(this.Button_FClick);
+			this.button_F.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_Y
 			// 
@@ -180,7 +168,7 @@ namespace Jogo_da_Forca
 			this.button_Y.Text = "Y";
 			this.button_Y.UseVisualStyleBackColor = true;
 			this.button_Y.Visible = false;
-			this.button_Y.Click += new System.EventHandler(this.Button_YClick);
+			this.button_Y.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_E
 			// 
@@ -191,7 +179,7 @@ namespace Jogo_da_Forca
 			this.button_E.Text = "E";
 			this.button_E.UseVisualStyleBackColor = true;
 			this.button_E.Visible = false;
-			this.button_E.Click += new System.EventHandler(this.Button_EClick);
+			this.button_E.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_U
 			// 
@@ -202,7 +190,7 @@ namespace Jogo_da_Forca
 			this.button_U.Text = "U";
 			this.button_U.UseVisualStyleBackColor = true;
 			this.button_U.Visible = false;
-			this.button_U.Click += new System.EventHandler(this.Button_UClick);
+			this.button_U.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_I
 			// 
@@ -213,7 +201,7 @@ namespace Jogo_da_Forca
 			this.button_I.Text = "I";
 			this.button_I.UseVisualStyleBackColor = true;
 			this.button_I.Visible = false;
-			this.button_I.Click += new System.EventHandler(this.Button_IClick);
+			this.button_I.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_V
 			// 
@@ -224,7 +212,7 @@ namespace Jogo_da_Forca
 			this.button_V.Text = "V";
 			this.button_V.UseVisualStyleBackColor = true;
 			this.button_V.Visible = false;
-			this.button_V.Click += new System.EventHandler(this.Button_VClick);
+			this.button_V.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_J
 			// 
@@ -235,7 +223,7 @@ namespace Jogo_da_Forca
 			this.button_J.Text = "J";
 			this.button_J.UseVisualStyleBackColor = true;
 			this.button_J.Visible = false;
-			this.button_J.Click += new System.EventHandler(this.Button_JClick);
+			this.button_J.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_W
 			// 
@@ -246,7 +234,7 @@ namespace Jogo_da_Forca
 			this.button_W.Text = "W";
 			this.button_W.UseVisualStyleBackColor = true;
 			this.button_W.Visible = false;
-			this.button_W.Click += new System.EventHandler(this.Button_WClick);
+			this.button_W.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_L
 			// 
@@ -257,7 +245,7 @@ namespace Jogo_da_Forca
 			this.button_L.Text = "L";
 			this.button_L.UseVisualStyleBackColor = true;
 			this.button_L.Visible = false;
-			this.button_L.Click += new System.EventHandler(this.Button_LClick);
+			this.button_L.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_X
 			// 
@@ -268,7 +256,7 @@ namespace Jogo_da_Forca
 			this.button_X.Text = "X";
 			this.button_X.UseVisualStyleBackColor = true;
 			this.button_X.Visible = false;
-			this.button_X.Click += new System.EventHandler(this.Button_XClick);
+			this.button_X.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_K
 			// 
@@ -279,7 +267,7 @@ namespace Jogo_da_Forca
 			this.button_K.Text = "K";
 			this.button_K.UseVisualStyleBackColor = true;
 			this.button_K.Visible = false;
-			this.button_K.Click += new System.EventHandler(this.Button_KClick);
+			this.button_K.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_S
 			// 
@@ -290,7 +278,7 @@ namespace Jogo_da_Forca
 			this.button_S.Text = "S";
 			this.button_S.UseVisualStyleBackColor = true;
 			this.button_S.Visible = false;
-			this.button_S.Click += new System.EventHandler(this.Button_SClick);
+			this.button_S.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_P
 			// 
@@ -301,7 +289,7 @@ namespace Jogo_da_Forca
 			this.button_P.Text = "P";
 			this.button_P.UseVisualStyleBackColor = true;
 			this.button_P.Visible = false;
-			this.button_P.Click += new System.EventHandler(this.Button_PClick);
+			this.button_P.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_T
 			// 
@@ -312,7 +300,7 @@ namespace Jogo_da_Forca
 			this.button_T.Text = "T";
 			this.button_T.UseVisualStyleBackColor = true;
 			this.button_T.Visible = false;
-			this.button_T.Click += new System.EventHandler(this.Button_TClick);
+			this.button_T.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_O
 			// 
@@ -323,7 +311,7 @@ namespace Jogo_da_Forca
 			this.button_O.Text = "O";
 			this.button_O.UseVisualStyleBackColor = true;
 			this.button_O.Visible = false;
-			this.button_O.Click += new System.EventHandler(this.Button_OClick);
+			this.button_O.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_R
 			// 
@@ -334,7 +322,7 @@ namespace Jogo_da_Forca
 			this.button_R.Text = "R";
 			this.button_R.UseVisualStyleBackColor = true;
 			this.button_R.Visible = false;
-			this.button_R.Click += new System.EventHandler(this.Button_RClick);
+			this.button_R.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_N
 			// 
@@ -345,7 +333,7 @@ namespace Jogo_da_Forca
 			this.button_N.Text = "N";
 			this.button_N.UseVisualStyleBackColor = true;
 			this.button_N.Visible = false;
-			this.button_N.Click += new System.EventHandler(this.Button_NClick);
+			this.button_N.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_Q
 			// 
@@ -356,7 +344,7 @@ namespace Jogo_da_Forca
 			this.button_Q.Text = "Q";
 			this.button_Q.UseVisualStyleBackColor = true;
 			this.button_Q.Visible = false;
-			this.button_Q.Click += new System.EventHandler(this.Button_QClick);
+			this.button_Q.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// button_M
 			// 
@@ -367,11 +355,11 @@ namespace Jogo_da_Forca
 			this.button_M.Text = "M";
 			this.button_M.UseVisualStyleBackColor = true;
 			this.button_M.Visible = false;
-			this.button_M.Click += new System.EventHandler(this.Button_MClick);
+			this.button_M.Click += new System.EventHandler(this.ButtonKeyboardClick);
 			// 
 			// textBox1
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBox1.Location = new System.Drawing.Point(44, 44);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(120, 26);
@@ -382,10 +370,10 @@ namespace Jogo_da_Forca
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(13, 17);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(-8, 16);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(181, 25);
+			this.label1.Size = new System.Drawing.Size(216, 25);
 			this.label1.TabIndex = 55;
 			this.label1.Text = "Digite uma palavra:";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -394,7 +382,7 @@ namespace Jogo_da_Forca
 			// button1
 			// 
 			this.button1.BackColor = System.Drawing.Color.Aquamarine;
-			this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.Location = new System.Drawing.Point(64, 284);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(167, 72);
@@ -405,7 +393,7 @@ namespace Jogo_da_Forca
 			// 
 			// button3
 			// 
-			this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button3.Location = new System.Drawing.Point(59, 83);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(96, 25);
@@ -418,7 +406,7 @@ namespace Jogo_da_Forca
 			// button2
 			// 
 			this.button2.BackColor = System.Drawing.Color.LightSalmon;
-			this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.Location = new System.Drawing.Point(332, 284);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(167, 72);
@@ -430,7 +418,7 @@ namespace Jogo_da_Forca
 			// 
 			// label2
 			// 
-			this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(3, 120);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(197, 23);
@@ -441,7 +429,7 @@ namespace Jogo_da_Forca
 			// 
 			// label3
 			// 
-			this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(3, 143);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(197, 25);
@@ -452,18 +440,18 @@ namespace Jogo_da_Forca
 			// 
 			// listBox2
 			// 
-			this.listBox2.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox2.FormattingEnabled = true;
-			this.listBox2.ItemHeight = 28;
+			this.listBox2.ItemHeight = 29;
 			this.listBox2.Location = new System.Drawing.Point(408, 61);
 			this.listBox2.Name = "listBox2";
-			this.listBox2.Size = new System.Drawing.Size(164, 88);
+			this.listBox2.Size = new System.Drawing.Size(164, 62);
 			this.listBox2.TabIndex = 62;
 			this.listBox2.Visible = false;
 			// 
 			// label4
 			// 
-			this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(436, 42);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(110, 16);
@@ -494,10 +482,10 @@ namespace Jogo_da_Forca
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.Location = new System.Drawing.Point(467, 176);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(94, 15);
+			this.label7.Size = new System.Drawing.Size(107, 16);
 			this.label7.TabIndex = 67;
 			this.label7.Text = "TENTATIVAS:";
 			this.label7.Visible = false;
@@ -505,10 +493,10 @@ namespace Jogo_da_Forca
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.Location = new System.Drawing.Point(36, 1);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(86, 84);
+			this.label5.Size = new System.Drawing.Size(101, 87);
 			this.label5.TabIndex = 64;
 			this.label5.Text = "JOGO \r\nDA \r\nFORCA";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -537,12 +525,23 @@ namespace Jogo_da_Forca
 			this.panel3.Size = new System.Drawing.Size(203, 172);
 			this.panel3.TabIndex = 69;
 			// 
+			// button_H
+			// 
+			this.button_H.Location = new System.Drawing.Point(420, 197);
+			this.button_H.Name = "button_H";
+			this.button_H.Size = new System.Drawing.Size(31, 23);
+			this.button_H.TabIndex = 65;
+			this.button_H.Text = "H";
+			this.button_H.UseVisualStyleBackColor = true;
+			this.button_H.Visible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightCyan;
 			this.ClientSize = new System.Drawing.Size(599, 376);
+			this.Controls.Add(this.button_H);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.panel1);
@@ -554,7 +553,6 @@ namespace Jogo_da_Forca
 			this.Controls.Add(this.button_A);
 			this.Controls.Add(this.button_B);
 			this.Controls.Add(this.button_D);
-			this.Controls.Add(this.button_H);
 			this.Controls.Add(this.button_G);
 			this.Controls.Add(this.button_Z);
 			this.Controls.Add(this.button_F);
@@ -588,6 +586,7 @@ namespace Jogo_da_Forca
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button_H;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label7;
@@ -624,7 +623,6 @@ namespace Jogo_da_Forca
 		private System.Windows.Forms.Button button_F;
 		private System.Windows.Forms.Button button_Z;
 		private System.Windows.Forms.Button button_G;
-		private System.Windows.Forms.Button button_H;
 		private System.Windows.Forms.Button button_D;
 		private System.Windows.Forms.Button button_B;
 		private System.Windows.Forms.Button button_A;

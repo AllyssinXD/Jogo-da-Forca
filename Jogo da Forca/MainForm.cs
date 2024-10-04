@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace Jogo_da_Forca
 {
@@ -21,161 +22,127 @@ namespace Jogo_da_Forca
 		int tentativas = 6;
 		string palavra = "__";
 		bool button4 = false;
-		Button[] botoesColoridos = {};
+		List<Button> botoesColoridos = new List<Button>();
+		List<Button> botoesTeclado;
+		
 		
 		public MainForm()
 		{
-		
 			InitializeComponent();
-			
-		}
-	
-		void dar(bool neutro){
-			button_A.Enabled = neutro;
-			button_B.Enabled = neutro;
-			button_C.Enabled = neutro;
-			button_D.Enabled = neutro;
-			button_E.Enabled = neutro;
-			button_F.Enabled = neutro;
-			button_G.Enabled = neutro;
-			button_H.Enabled = neutro;
-			button_I.Enabled = neutro;
-			button_J.Enabled = neutro;
-			button_K.Enabled = neutro;
-			button_L.Enabled = neutro;
-			button_M.Enabled = neutro;
-			button_N.Enabled = neutro;
-			button_O.Enabled = neutro;
-			button_P.Enabled = neutro;
-			button_Q.Enabled = neutro;
-			button_R.Enabled = neutro;
-			button_S.Enabled = neutro;
-			button_T.Enabled = neutro;
-			button_U.Enabled = neutro;
-			button_V.Enabled = neutro;
-			button_W.Enabled = neutro;
-			button_X.Enabled = neutro;
-			button_Y.Enabled = neutro;
-			button_Z.Enabled = neutro;
+			botoesTeclado = new List<Button>
+			{
+			    button_A, button_B, button_C, button_D, button_E,
+			    button_F, button_G, button_H, button_I, button_J,
+			    button_K, button_L, button_M, button_N, button_O,
+			    button_P, button_Q, button_R, button_S, button_T,
+			    button_U, button_V, button_W, button_X, button_Y, button_Z
+			};
 		}
 		
-		void show (bool visivel){
-			button_A.Visible = visivel;
-			button_B.Visible = visivel;
-			button_C.Visible = visivel;
-			button_D.Visible = visivel;
-			button_E.Visible = visivel;
-			button_F.Visible = visivel;
-			button_G.Visible = visivel;
-			button_H.Visible = visivel;
-			button_I.Visible = visivel;
-			button_J.Visible = visivel;
-			button_K.Visible = visivel;
-			button_L.Visible = visivel;
-			button_M.Visible = visivel;
-			button_N.Visible = visivel;
-			button_O.Visible = visivel;
-			button_P.Visible = visivel;
-			button_Q.Visible = visivel;
-			button_R.Visible = visivel;
-			button_S.Visible = visivel;
-			button_T.Visible = visivel;
-			button_U.Visible = visivel;
-			button_V.Visible = visivel;
-			button_W.Visible = visivel;
-			button_X.Visible = visivel;
-			button_Y.Visible = visivel;
-			button_Z.Visible = visivel;
-		}	
+		void mudarVisibilidade(bool visibilidade, params object[] objs){
+			foreach (Control obj in objs){
+				obj.Visible = visibilidade;
+			}
+		}
 		
-		void letra (char letra, Button botao){
-			
-			bool cont = false;
+		void mudarVisibilidade1<T>(bool visibilidade, IEnumerable<T> objs) where T : Control{
+			foreach (T obj in objs){
+				obj.Visible = visibilidade;
+			}
+		}
+		
+		void mudarAtivado(bool ativado, params object[] objs){
+			foreach (Control obj in objs){
+				obj.Enabled = ativado;
+			}
+		}
+		void mudarAtivado1<T>(bool ativado, IEnumerable<T> objs) where T : Control{
+			foreach (T obj in objs){
+				obj.Enabled = ativado;
+			}
+		}
+		
+		void teclaPressionada(char caractere, Button botao){
+			bool caractereEncontrado = false;
 			botao.Enabled = false;
+			
+			// Loop sobre todas as letras na palavra escolhida
 			for(int i=0; i<palavra.Length; i++){
-				if(palavra[i] == letra){
-					cont = true;
-					botao.BackColor = Color.Green;
-					if (i == 0){
-						char[] A = label2.Text.ToCharArray();
-						A[i] = letra;
-						label2.Text = new string(A);
-					} else {
-						char[] A = label2.Text.ToCharArray();
-						A[i+i] = letra;
-						label2.Text = new string(A);
-					}
+				/*
+ 				  * Se encontra a letra na palavra:
+				  * - Muda a cor do botão
+				  * - Adiciona letra entre as descobertas
+				 */
+				if(palavra[i] == caractere){
+					caractereEncontrado = true;
 					
+					botao.BackColor = Color.Green;
+					
+					char[] charsDescobertas = label2.Text.ToCharArray();
+					
+					//Condições necessárias para calcular onde o caractere
+					//descoberto há de aparecer. (Pular os espaços e substituir apenas o "_")
+					if (i == 0) charsDescobertas[i] = caractere;
+					else charsDescobertas[i+i] = caractere;
+					
+					label2.Text = new string(charsDescobertas);
 				}
 			}
-			if(!label2.Text.Contains("_")){
-				label3.Text = "Parabéns! A palavra era " + palavra;
-				button3.Enabled = false;
-				textBox1.Enabled = false;
-				dar(false);
-			}
-			if (cont == false){
+						
+			//Caractere não encontrado :
+			if (!caractereEncontrado){
 				botao.BackColor = Color.Red;
-				listBox2.Items.Add(letra+",");
+				listBox2.Items.Add(caractere+",");
 				tentativas = tentativas - 1;
 				label6.Text = tentativas.ToString();
 			}
+			
+			botoesColoridos.Add(botao);
+			
+			//Verifica se ainda tem letras a serem descobertas
+			if(!label2.Text.Contains("_")){
+				label3.Text = "Parabéns! A palavra era " + palavra;
+				mudarAtivado(false, textBox1, button3);
+				mudarAtivado1<Button>(false, botoesTeclado);
+			}
+			
+			//A cada Letra no Teclado Apertada, Verificar se as chances acabaram :
 			if (tentativas == 0) {
-				dar(false);
-				label3.Text = "você ficou sem tentivas, chute a palavra";
-				
+				mudarAtivado1<Button>(false, botoesTeclado);
+				label3.Text = "você ficou sem tentivas, chute a palavra";	
 			}
 		}
 		
 		void Button1Click(object sender, EventArgs e)
 		{
-			label1.Visible = true;
-			textBox1.Visible = true;
-			button3.Visible = true;
-			button1.Visible = false;
+			mudarVisibilidade(true,label1,textBox1,button3);
+			mudarVisibilidade(false,button1);
+			mudarAtivado(true, button3, textBox1);
+			
 			button3.Text = "CONFIRMAR";
-			button3.Enabled = true;
-			textBox1.Enabled = true;
-			for(int i =0; i<botoesColoridos.Length; i++){
-				botoesColoridos[i].BackColor = Color.Gainsboro;
-				Array.Clear(botoesColoridos,0, botoesColoridos.Length);
+
+			for(int i =0; i<botoesColoridos.Count; i++){
+				botoesColoridos[i].BackColor = Color.Transparent;
 			}
-			
-			
-			
+			botoesColoridos.Clear();
 		}
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			label1.Visible = false;
-			label2.Visible = false;
-			label3.Visible = false;
-			label4.Visible = false;
-			label5.Visible = false;
-			label6.Visible = false;
-			label7.Visible = false;
-			label1.Text = "Digite uma palavra:";
-			
-			panel2.Visible = false;
-			listBox2.Visible = false;
-			textBox1.Visible = false;
-			panel1.Visible = false;
-			textBox1.MaxLength = 3000;
-			
-			button3.Visible = false;
-			button2.Visible = false;
-			
-			listBox2.Items.Clear();
-			
-			dar(true);
-			tentativas = 6;
-			
+			mudarVisibilidade(false,label1,label2,label3,label4,label5,label6,label7,
+			                  panel2,listBox2,textBox1,panel1,button3,button2);
+			mudarVisibilidade1<Button>(false, botoesTeclado);
 			
 			button1.Visible = true;
-			show(false);
+			
+			label1.Text = "Digite uma palavra:";
+			
+			textBox1.MaxLength = 3000;
+			listBox2.Items.Clear();
+
+			tentativas = 6;
 			
 			button4 = false;
-				
 		}
 		
 		void Button3Click(object sender, EventArgs e)
@@ -184,21 +151,18 @@ namespace Jogo_da_Forca
 			if(button4 == false){
 				palavra = textBox1.Text.ToUpper();
 				label2.Text = (new string('_', palavra.Length)).Replace("_","_ ");
-				label2.Visible = true;
 				label3.Text = "A Palavra tem " + textBox1.Text.Length + " letras";
 				label1.Text = "palpite:";
-				label4.Visible = true;
-				label5.Visible = true;
-				panel2.Visible = true;
-				listBox2.Visible = true;
-				label3.Visible = true;
-				show(true);
+				
+				mudarVisibilidade(true,label2,label4,label5,panel2,listBox2,label3,
+				                  button2,panel1,label6,label7);
+				
+				mudarVisibilidade1<Button>(true, botoesTeclado);
+				mudarAtivado1<Button>(true, botoesTeclado);
 			
 				textBox1.Text = "";
 				textBox1.MaxLength = palavra.Length;
-				panel1.Visible = true;
-				label6.Visible = true;
-				label7.Visible = true;
+				
 				
 				button3.Text = "CHUTAR";
 				button4 = true;
@@ -207,8 +171,6 @@ namespace Jogo_da_Forca
 				if (textBox1.Text.ToUpper() == palavra){
 					label3.Text = "Parabéns! A palavra era " + palavra;
 					button2.Visible = true;
-					
-					
 				} else {
 					label3.Text = "Errou! A palavra era " + palavra;
 					button2.Visible = true;
@@ -216,146 +178,19 @@ namespace Jogo_da_Forca
 				}
 				button3.Enabled = false;
 				textBox1.Enabled = false;
-				dar(false);
+				mudarVisibilidade1<Button>(false, botoesTeclado);
 				label2.Text = palavra;
 			}
-			
-		
-			
 		}
-		
-		
-		// Alphabet order
 
-		void Button_AClick(object sender, EventArgs e)
+		void ButtonKeyboardClick(object sender, EventArgs e)
 		{
-			letra('A', sender as Button);
+			Button botao = sender as Button;
+			
+			if(botao != null){
+				char letra = botao.Name.Last();
+				teclaPressionada(letra, botao);
+			}
 		}
-		
-		void Button_BClick(object sender, EventArgs e)
-		{
-			letra('B', sender as Button);
-		}
-		
-		void Button_CClick(object sender, EventArgs e)
-		{
-			letra('C',  sender as Button);
-		}
-		
-		void Button_DClick(object sender, EventArgs e)
-		{
-			letra('D',  sender as Button);
-		}
-		
-		void Button_EClick(object sender, EventArgs e)
-		{
-			letra('E',  sender as Button);
-		}
-		
-		void Button_FClick(object sender, EventArgs e)
-		{
-			letra('F',  sender as Button);
-		}
-		
-		void Button_GClick(object sender, EventArgs e)
-		{
-			letra('G',  sender as Button);
-		}
-		
-		void Button_HClick(object sender, EventArgs e)
-		{
-			letra('H',  sender as Button);
-		}
-		
-		void Button_IClick(object sender, EventArgs e)
-		{
-			letra('I',  sender as Button);
-		}
-		
-		void Button_JClick(object sender, EventArgs e)
-		{
-			letra('J',  sender as Button);
-		}
-		
-		void Button_KClick(object sender, EventArgs e)
-		{
-			letra('K',  sender as Button);
-		}
-		
-		void Button_LClick(object sender, EventArgs e)
-		{
-			letra('L',  sender as Button);
-		}
-		
-		void Button_MClick(object sender, EventArgs e)
-		{
-			letra('M',  sender as Button);
-		}
-		
-		void Button_NClick(object sender, EventArgs e)
-		{
-			letra('N',  sender as Button);
-		}
-		
-		void Button_OClick(object sender, EventArgs e)
-		{
-			letra('O',  sender as Button);
-		}
-		
-		void Button_PClick(object sender, EventArgs e)
-		{
-			letra('P',  sender as Button);
-		}
-		
-		void Button_QClick(object sender, EventArgs e)
-		{
-			letra('Q',  sender as Button);
-		}
-		
-		void Button_RClick(object sender, EventArgs e)
-		{
-			letra('R',  sender as Button);
-		}
-		
-		void Button_SClick(object sender, EventArgs e)
-		{
-			letra('S',  sender as Button);
-		}
-		
-		void Button_TClick(object sender, EventArgs e)
-		{
-			letra('T',  sender as Button);
-		}
-		
-		void Button_UClick(object sender, EventArgs e)
-		{
-			letra('U',  sender as Button);
-		}
-		
-		void Button_VClick(object sender, EventArgs e)
-		{
-			letra('V',  sender as Button);
-		}
-		
-		void Button_WClick(object sender, EventArgs e)
-		{
-			letra('W',  sender as Button);
-		}
-		
-		void Button_XClick(object sender, EventArgs e)
-		{
-			letra('X',  sender as Button);
-		}
-		
-		void Button_YClick(object sender, EventArgs e)
-		{
-			letra('Y',  sender as Button);
-		}
-		
-		void Button_ZClick(object sender, EventArgs e)
-		{
-			letra('Z',  sender as Button);
-		}
-		
 	}
 }

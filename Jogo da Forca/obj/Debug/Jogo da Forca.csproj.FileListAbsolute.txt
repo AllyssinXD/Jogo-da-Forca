@@ -12,3 +12,10 @@ C:\Users\aliss\OneDrive\Documentos\SharpDevelop Projects\Jogo da Forca\Jogo da F
 C:\Users\aliss\OneDrive\Documentos\SharpDevelop Projects\Jogo da Forca\Jogo da Forca\obj\Debug\Jogo da Forca.csproj.GenerateResource.Cache
 C:\Users\aliss\OneDrive\Documentos\SharpDevelop Projects\Jogo da Forca\Jogo da Forca\obj\Debug\Jogo da Forca.exe
 C:\Users\aliss\OneDrive\Documentos\SharpDevelop Projects\Jogo da Forca\Jogo da Forca\obj\Debug\Jogo da Forca.pdb
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\obj\Debug\Jogo da Forca.csprojResolveAssemblyReference.cache
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\obj\Debug\Jogo_da_Forca.MainForm.resources
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\obj\Debug\Jogo da Forca.csproj.GenerateResource.Cache
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\obj\Debug\Jogo da Forca.exe
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\obj\Debug\Jogo da Forca.pdb
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\bin\Debug\Jogo da Forca.exe
+C:\Users\aliss\Downloads\Jogo da Forca (1)\Git Jogo da forca\Jogo-da-Forca\Jogo da Forca\bin\Debug\Jogo da Forca.pdb
